@@ -91,18 +91,32 @@
 					<pre><code class="javascript" data-trim contenteditable>
 store.dispatch({
   type: 'Job/SAVE', // action type
-  model: {
-    name: 'Game of Thrones',
-  },
+  model: { name: 'Game of Thrones' },
 });
 
-// action creator
+// with action creator
 function saveJob(model) {
   return {
-    type: 'Job/SAVE',
+    type: 'Job/SAVE', // action type
     model,
   };
 }
+store.dispatch(saveJob({ name: 'Game of Thrones' });
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="javascript" data-trim contenteditable>
+// with action creator
+function saveJob(model) {
+  try {
+    // do something, like validation
+
+    return { type: 'Job/SAVE', model };
+  } catch (error) {
+    return { type: 'VALIDATION_ERROR', error };
+  }
+}
+store.dispatch(saveJob({ name: 'Game of Thrones' });
 					</code></pre>
 				</section>
 				<section data-background="images/redux1.png" data-background-size="auto">
@@ -110,8 +124,6 @@ function saveJob(model) {
 				<section data-background="images/redux2.png" data-background-size="auto">
 				</section>
 				<section data-background="images/redux3.png" data-background-size="auto">
-				</section>
-				<section data-background="images/redux4.png" data-background-size="auto">
 				</section>
 				<section data-background="images/redux5.png" data-background-size="auto">
 				</section>
@@ -174,10 +186,12 @@ function counter(state = 0, action) {
 				<section data-background="images/redux-structure.png" data-background-size="auto">
 				</section>
 				<section>
-					<h2>DevTools</h2>
+					<h2>Redux DevTools</h2>
 				</section>
 				<section>
-				<h2>Perguntas?</h2>
+					<h2>Obrigado!</h2>
+					<h2>Perguntas?</h2>
+					<p><a href="http://www.brunonardini.com.br/">www.brunonardini.com.br</a></p>
 				</section>
 			</div>
 		</div>
