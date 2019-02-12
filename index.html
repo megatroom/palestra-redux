@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Redux by Nardini</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/main.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="images/why-redux.png" alt="Why redux?" />
+				</section>
+				<!-- <img src="images/" alt="Why redux?" /> -->
+				<section data-background-color="#f7df1e">
+					<h1>JS</h1>
+				</section>
+				<section data-background="images/wireframe-clean-list.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux0-0-1.png" data-background-size="auto">
+				</section>
+				<section data-background="images/ThinkinginReact.png" data-background-size="auto">
+				</section>
+				<section data-background="images/bem.jpg" data-background-size="auto">
+				</section>
+				<section data-background="images/wireframe-edit-label.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux0-0-0.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux0-0.png" data-background-size="auto">
+				</section>
+				<section data-background="images/presentational-container-components.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux0-2.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux-many-components.png" data-background-size="auto">
+				</section>
+				<section data-background="images/wireframe-app-notes-about.png" data-background-size="auto">
+				</section>
+				<section data-background="images/dawg-1.png" data-background-size="auto">
+				</section>
+				<section data-background="images/dawg-2.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux-x-1.png" data-background-size="auto">
+				</section>
+
+				<section>
+					<div>
+						<img alt="" src="images/single-source-of-truth.png" />
+					</div>
+					<p>
+						O estado (<strong>state</strong>) de toda a sua aplicação é armazenado em uma árvore
+						de objetos dentro de uma única reserva (<strong>store</strong>).
+					</p>
+				</section>
+				<section data-background="images/screen07.png" data-background-size="contain">
+				</section>
+				<section data-background="images/screen08.png" data-background-size="contain">
+				</section>
+
+				<section>
+					<div>
+						<img alt="" src="images/lock.png" />
+					</div>
+					<h2>State is read-only</h2>
+					<p>
+						A única maneira de mudar o estado (<strong>state</strong>)
+						é emitir uma ação (<strong>action</strong>) com
+						um objeto que descreve o que acontecerá.
+					</p>
+				</section>
+				<section>
+					<h2>Redux Action</h2>
+					<pre><code class="javascript" data-trim contenteditable>
+store.dispatch({
+  type: 'Job/SAVE', // action type
+  model: {
+    name: 'Game of Thrones',
+  },
+});
+
+// action creator
+function saveJob(model) {
+  return {
+    type: 'Job/SAVE',
+    model,
+  };
+}
+					</code></pre>
+				</section>
+				<section data-background="images/redux1.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux2.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux3.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux4.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux5.png" data-background-size="auto">
+				</section>
+				<section>
+					<div>
+						<img alt="" src="images/pure.png" />
+					</div>
+					<h2>Changes are made with pure functions</h2>
+					<p>
+						Para especificar como a árvore de estados (<strong>store</strong>)
+						é transformada por ações (<strong>actions</strong>),
+						você escreve redutores puros (<strong>pure reducers</strong>).
+					</p>
+				</section>
+				<section>
+					<h2>Reducer:</h2>
+					<pre><code class="javascript" data-trim contenteditable>
+function counter(state = 0, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    default:
+      return state
+  }
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>Porque imutabilidade é importante</h2>
+					<ul>
+						<li>Facilidade em ir e vir na Viagem no Tempo</li>
+						<li>Acompanhamento das mudanças</li>
+						<li>Determinar quando re-renderizar no React</li>
+					</ul>
+				</section>
+				<section data-background="images/redux6.png" data-background-size="auto">
+				</section>
+				<section>
+					<h3>Redux é síncrono</h3>
+					<img src="images/arrows.png" alt="Setas">
+				</section>
+				<section data-background="images/redux7.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux8.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux9.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux10.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux11.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux-selector.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux-business.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux-set-state.png" data-background-size="auto">
+				</section>
+				<section data-background="images/redux-structure.png" data-background-size="auto">
+				</section>
+				<section>
+					<h2>DevTools</h2>
+				</section>
+				<section>
+				<h2>Perguntas?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{
+						src: 'plugin/highlight/highlight.js',
+						async: true,
+						callback: function() { hljs.initHighlightingOnLoad(); }
+					}
+				]
+			});
+		</script>
+	</body>
+</html>
