@@ -1,6 +1,6 @@
 # palestra-redux
 
-Palestra sobre Redux
+Palestra sobre Redux: https://megatroom.github.io/palestra-redux/
 
 ## Referências
 
